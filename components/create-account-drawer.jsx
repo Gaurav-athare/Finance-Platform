@@ -120,7 +120,7 @@ export function CreateAccountDrawer({ children }) {
 
             <div className="space-y-2">
               <label htmlFor="balance" className="text-sm font-medium">
-                Starting Balance
+                Starting Balance (₹)
               </label>
               <Input
                 id="balance"

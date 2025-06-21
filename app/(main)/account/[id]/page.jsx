@@ -6,7 +6,7 @@ import { AccountChart } from "../_components/account-chart";
 import { TransactionTable } from "../_components/transaction-table";
 
 export default async function AccountPage(props) {
-  const { params } = props; // ✅ Safe destructuring here
+  const { params } = props;
 
   const accountId = Array.isArray(params?.id) ? params.id[0] : params?.id;
 
@@ -36,7 +36,7 @@ export default async function AccountPage(props) {
 
         <div className="text-right pb-2">
           <div className="text-xl sm:text-2xl font-bold">
-            ${parseFloat(account.balance).toFixed(2)}
+            ₹{parseFloat(account.balance).toFixed(2)}
           </div>
           <p className="text-sm text-muted-foreground">
             {account._count.transactions} Transactions

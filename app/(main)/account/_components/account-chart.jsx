@@ -35,7 +35,9 @@ export function AccountChart({ transactions }) {
   const filteredData = useMemo(() => {
     const { days } = DATE_RANGES[dateRange];
     const now = new Date();
-    const startDate = days ? startOfDay(subDays(now, days)) : startOfDay(new Date(0));
+    const startDate = days
+      ? startOfDay(subDays(now, days))
+      : startOfDay(new Date(0));
 
     const grouped = transactions
       .filter((t) => {
@@ -49,7 +51,9 @@ export function AccountChart({ transactions }) {
         return acc;
       }, {});
 
-    return Object.values(grouped).sort((a, b) => new Date(a.date) - new Date(b.date));
+    return Object.values(grouped).sort(
+      (a, b) => new Date(a.date) - new Date(b.date)
+    );
   }, [transactions, dateRange]);
 
   const totals = useMemo(() => {
@@ -68,7 +72,9 @@ export function AccountChart({ transactions }) {
   return (
     <Card>
       <CardHeader className="flex items-center justify-between pb-6">
-        <CardTitle className="text-base font-semibold">Transaction Overview</CardTitle>
+        <CardTitle className="text-base font-semibold">
+          Transaction Overview
+        </CardTitle>
         <Select defaultValue={dateRange} onValueChange={setDateRange}>
           <SelectTrigger className="w-[140px]">
             <SelectValue placeholder="Select range" />
@@ -87,15 +93,19 @@ export function AccountChart({ transactions }) {
         <div className="grid grid-cols-3 gap-4 mb-6 text-center text-sm">
           <div>
             <p className="text-muted-foreground">Total Income</p>
-            <p className="text-lg font-bold text-green-500">${totals.income.toFixed(2)}</p>
+            <p className="text-lg font-bold text-green-500">
+              ₹{totals.income.toFixed(2)}
+            </p>
           </div>
           <div>
             <p className="text-muted-foreground">Total Expenses</p>
-            <p className="text-lg font-bold text-red-500">${totals.expense.toFixed(2)}</p>
+            <p className="text-lg font-bold text-red-500">
+              ₹{totals.expense.toFixed(2)}
+            </p>
           </div>
           <div>
             <p className="text-muted-foreground">Net</p>
-            <p className={`text-lg font-bold ${netColor}`}>${net.toFixed(2)}</p>
+            <p className={`text-lg font-bold ${netColor}`}>₹{net.toFixed(2)}</p>
           </div>
         </div>
 
@@ -116,10 +126,10 @@ export function AccountChart({ transactions }) {
                 fontSize={12}
                 tickLine={false}
                 axisLine={false}
-                tickFormatter={(val) => `$${val}`}
+                tickFormatter={(val) => `₹${val}`}
               />
               <Tooltip
-                formatter={(val) => [`$${val}`, undefined]}
+                formatter={(val) => [`₹${val}`, undefined]}
                 contentStyle={{
                   backgroundColor: "hsl(var(--popover))",
                   border: "1px solid hsl(var(--border))",
@@ -127,8 +137,18 @@ export function AccountChart({ transactions }) {
                 }}
               />
               <Legend />
-              <Bar dataKey="income" name="Income" fill="#22c55e" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="expense" name="Expense" fill="#ef4444" radius={[4, 4, 0, 0]} />
+              <Bar
+                dataKey="income"
+                name="Income"
+                fill="#22c55e"
+                radius={[4, 4, 0, 0]}
+              />
+              <Bar
+                dataKey="expense"
+                name="Expense"
+                fill="#ef4444"
+                radius={[4, 4, 0, 0]}
+              />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -136,5 +156,3 @@ export function AccountChart({ transactions }) {
     </Card>
   );
 }
-// This component is designed to visualize account transactions over time using a bar chart.
-// It allows users to select different date ranges and displays income, expenses, and net totals.
