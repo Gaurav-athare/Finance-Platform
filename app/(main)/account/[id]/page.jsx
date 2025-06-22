@@ -1,24 +1,20 @@
+// app/account/[id]/page.jsx
+
+export const dynamic = "force-dynamic";
+
 import { notFound } from "next/navigation";
-import { getAccountWithTransactions } from "@/actions/account";
 import { Suspense } from "react";
 import { BarLoader } from "react-spinners";
 import { AccountChart } from "../_components/account-chart";
 import { TransactionTable } from "../_components/transaction-table";
+import { getAccountWithTransactions } from "@/actions/account";
 
-export default async function AccountPage(props) {
-  const { params } = props;
-
-  const accountId = Array.isArray(params?.id) ? params.id[0] : params?.id;
-
-  if (!accountId || typeof accountId !== "string") {
-    notFound();
-  }
+export default async function AccountPage({ params }) {
+  const accountId = await params.id; // ✅ safe to use directly here in this function
 
   const accountData = await getAccountWithTransactions(accountId);
 
-  if (!accountData) {
-    notFound();
-  }
+  if (!accountData) notFound();
 
   const { transactions, ...account } = accountData;
 
