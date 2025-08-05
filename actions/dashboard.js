@@ -21,12 +21,19 @@ export async function getUserAccounts() {
   const { userId } = await auth();
   if (!userId) throw new Error("Unauthorized");
 
-  const user = await db.user.findUnique({
+  let user = await db.user.findUnique({
     where: { clerkUserId: userId },
   });
 
   if (!user) {
-    throw new Error("User not found");
+    // If user doesn't exist in our database yet, create them
+    user = await db.user.create({
+      data: {
+        clerkUserId: userId,
+        email: "placeholder@email.com", // Will be updated by webhook
+        name: "New User", // Will be updated by webhook
+      },
+    });
   }
 
   try {
@@ -82,12 +89,19 @@ export async function createAccount(data) {
       throw new Error("Request blocked");
     }
 
-    const user = await db.user.findUnique({
+    let user = await db.user.findUnique({
       where: { clerkUserId: userId },
     });
 
     if (!user) {
-      throw new Error("User not found");
+      // If user doesn't exist in our database yet, create them
+      user = await db.user.create({
+        data: {
+          clerkUserId: userId,
+          email: "placeholder@email.com", // Will be updated by webhook
+          name: "New User", // Will be updated by webhook
+        },
+      });
     }
 
     // Convert balance to float before saving
@@ -138,12 +152,19 @@ export async function getDashboardData() {
   const { userId } = await auth();
   if (!userId) throw new Error("Unauthorized");
 
-  const user = await db.user.findUnique({
+  let user = await db.user.findUnique({
     where: { clerkUserId: userId },
   });
 
   if (!user) {
-    throw new Error("User not found");
+    // If user doesn't exist in our database yet, create them
+    user = await db.user.create({
+      data: {
+        clerkUserId: userId,
+        email: "placeholder@email.com", // Will be updated by webhook
+        name: "New User", // Will be updated by webhook
+      },
+    });
   }
 
   // Get all user transactions
