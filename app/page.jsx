@@ -38,7 +38,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20">
+      {/* <section id="features" className="py-20">
         <div className="container mx-auto px-4">
           <p className="text-3xl font-bold text-center mb-8">Features</p>
           <h2 className="text-3xl font-bold text-center mb-12">
@@ -56,16 +56,16 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* Features Section */}
+   {/* Features Section */}
       <section id="features" className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">
             Everything you need to manage your finances
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {howItWorksData.map((feature, index) => (
+            {featuresData.map((feature, index) => (
               <Card className="p-6" key={index}>
                 <CardContent className="space-y-4 pt-4">
                   {feature.icon}
@@ -95,7 +95,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+      
       {/* Testimonials Section */}
       <section id="testimonials" className="py-20">
         <div className="container mx-auto px-4">
