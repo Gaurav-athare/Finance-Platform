@@ -54,7 +54,6 @@ import { bulkDeleteTransactions } from "@/actions/account";
 import useFetch from "@/hooks/use-fetch";
 import { BarLoader } from "react-spinners";
 import { useRouter } from "next/navigation";
-import { categoryColors } from "@/Data/categories";
 
 const ITEMS_PER_PAGE = 10;
 
