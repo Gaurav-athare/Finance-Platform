@@ -22,90 +22,82 @@ export const statsData = [
     label: "Uptime",
   },
   {
-    value: "4.9/5",
-    label: "User Rating",
+    value: "100+",
+    label: "Countries Supported",
   },
 ];
 
 // Features Data
 export const featuresData = [
   {
-    icon: <BarChart3 className="h-8 w-8 text-blue-600" />,
-    title: "Advanced Analytics",
-    description:
-      "Get detailed insights into your spending patterns with AI-powered analytics",
+    icon: <BarChart3 className="w-8 h-8 text-blue-600" />,
+    title: "Analytics Dashboard",
+    description: "Get a complete overview of your finances in one place.",
   },
   {
-    icon: <Receipt className="h-8 w-8 text-blue-600" />,
-    title: "Smart Receipt Scanner",
-    description:
-      "Extract data automatically from receipts using advanced AI technology",
+    icon: <Receipt className="w-8 h-8 text-blue-600" />,
+    title: "Expense Tracking",
+    description: "Track your spending and stay on budget.",
   },
   {
-    icon: <PieChart className="h-8 w-8 text-blue-600" />,
+    icon: <PieChart className="w-8 h-8 text-blue-600" />,
     title: "Budget Planning",
-    description: "Create and manage budgets with intelligent recommendations",
+    description: "Plan and manage your budgets with ease.",
   },
   {
-    icon: <CreditCard className="h-8 w-8 text-blue-600" />,
-    title: "Multi-Account Support",
-    description: "Manage multiple accounts and credit cards in one place",
+    icon: <CreditCard className="w-8 h-8 text-blue-600" />,
+    title: "Bill Reminders",
+    description: "Never miss a payment with timely reminders.",
   },
   {
-    icon: <Globe className="h-8 w-8 text-blue-600" />,
-    title: "Multi-Currency",
-    description: "Support for multiple currencies with real-time conversion",
+    icon: <Globe className="w-8 h-8 text-blue-600" />,
+    title: "Global Access",
+    description: "Access your finances from anywhere in the world.",
   },
   {
-    icon: <Zap className="h-8 w-8 text-blue-600" />,
-    title: "Automated Insights",
-    description: "Get automated financial insights and recommendations",
+    icon: <Zap className="w-8 h-8 text-blue-600" />,
+    title: "Instant Sync",
+    description: "Sync your data instantly across all devices.",
   },
 ];
 
 // How It Works Data
 export const howItWorksData = [
   {
-    icon: <CreditCard className="h-8 w-8 text-blue-600" />,
-    title: "1. Create Your Account",
-    description:
-      "Get started in minutes with our simple and secure sign-up process",
+    icon: <BarChart3 className="w-8 h-8 text-blue-600" />,
+    title: "Sign Up",
+    description: "Create your free account in seconds.",
   },
   {
-    icon: <BarChart3 className="h-8 w-8 text-blue-600" />,
-    title: "2. Track Your Spending",
-    description:
-      "Automatically categorize and track your transactions in real-time",
+    icon: <Receipt className="w-8 h-8 text-blue-600" />,
+    title: "Connect Accounts",
+    description: "Securely connect your bank and credit accounts.",
   },
   {
-    icon: <PieChart className="h-8 w-8 text-blue-600" />,
-    title: "3. Get Insights",
-    description:
-      "Receive AI-powered insights and recommendations to optimize your finances",
+    icon: <PieChart className="w-8 h-8 text-blue-600" />,
+    title: "Start Managing",
+    description: "Track, budget, and grow your wealth easily.",
   },
 ];
 
 // Testimonials Data
 export const testimonialsData = [
   {
-    name: "Sarah Johnson",
-    role: "Small Business Owner",
-    image: "https://randomuser.me/api/portraits/women/75.jpg",
-    quote:
-      "Welth has transformed how I manage my business finances. The AI insights have helped me identify cost-saving opportunities I never knew existed.",
+    image: "/download.webp",
+    name: "Jane Doe",
+    role: "Product Manager",
+    quote: "Welth has completely changed the way I manage my money!",
   },
   {
-    name: "Michael Chen",
-    role: "Freelancer",
-    image: "https://randomuser.me/api/portraits/men/75.jpg",
-    quote:
-      "The receipt scanning feature saves me hours each month. Now I can focus on my work instead of manual data entry and expense tracking.",
+    image: "/image2.webp",
+    name: "Dakota Johnson",
+    role: "Software Engineer",
+    quote: "The analytics dashboard is a game changer for my finances.",
   },
   {
-    name: "Emily Rodriguez",
-    role: "Financial Advisor",
-    image: "https://randomuser.me/api/portraits/women/74.jpg",
-    quote:
-      "I recommend Welth to all my clients. The multi-currency support and detailed analytics make it perfect for international investors.",
+    image: "/image1.jpeg",
+    name: "Emily Chen",
+    role: "Designer",
+    quote: "I love the clean interface and easy-to-use features!",
   },
 ];

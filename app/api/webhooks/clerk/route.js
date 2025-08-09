@@ -47,7 +47,6 @@ export async function POST(req) {
 
   if (eventType === "user.created") {
     const { id, email_addresses, image_url, first_name, last_name } = evt.data;
-    
     try {
       // First check if user already exists
       const existingUser = await db.user.findUnique({
@@ -78,23 +77,6 @@ export async function POST(req) {
       return new Response(JSON.stringify({ success: false, error: error.message }), {
         status: 500,
       });
-    }
-
-    // Create a new user in your database
-    try {
-      await db.user.create({
-        data: {
-          clerkUserId: id,
-          email: email_addresses[0].email_address,
-          name: `${first_name || ""} ${last_name || ""}`.trim(),
-          imageUrl: image_url,
-        },
-      });
-
-      return new Response("User created", { status: 201 });
-    } catch (error) {
-      console.error("Error creating user:", error);
-      return new Response("Error occurred", { status: 400 });
     }
   }
 

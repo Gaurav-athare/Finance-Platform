@@ -26,15 +26,16 @@ export async function getUserAccounts() {
   });
 
   if (!user) {
-    // If user doesn't exist in our database yet, create them
     user = await db.user.create({
       data: {
         clerkUserId: userId,
-        email: "placeholder@email.com", // Will be updated by webhook
-        name: "New User", // Will be updated by webhook
+        email: `temp-${userId}@placeholder.com`, // Make it unique per user
+        name: "New User",
       },
     });
   }
+
+  // Rest of your code...
 
   try {
     const accounts = await db.account.findMany({
@@ -94,14 +95,21 @@ export async function createAccount(data) {
     });
 
     if (!user) {
-      // If user doesn't exist in our database yet, create them
-      user = await db.user.create({
-        data: {
-          clerkUserId: userId,
-          email: "placeholder@email.com", // Will be updated by webhook
-          name: "New User", // Will be updated by webhook
-        },
+      // Check if a user with the placeholder email already exists
+      const existingEmailUser = await db.user.findUnique({
+        where: { email: "placeholder@email.com" },
       });
+      if (existingEmailUser) {
+        user = existingEmailUser;
+      } else {
+        user = await db.user.create({
+          data: {
+            clerkUserId: userId,
+            email: "placeholder@email.com", // Will be updated by webhook
+            name: "New User", // Will be updated by webhook
+          },
+        });
+      }
     }
 
     // Convert balance to float before saving
@@ -157,14 +165,21 @@ export async function getDashboardData() {
   });
 
   if (!user) {
-    // If user doesn't exist in our database yet, create them
-    user = await db.user.create({
-      data: {
-        clerkUserId: userId,
-        email: "placeholder@email.com", // Will be updated by webhook
-        name: "New User", // Will be updated by webhook
-      },
+    // Check if a user with the placeholder email already exists
+    const existingEmailUser = await db.user.findUnique({
+      where: { email: "placeholder@email.com" },
     });
+    if (existingEmailUser) {
+      user = existingEmailUser;
+    } else {
+      user = await db.user.create({
+        data: {
+          clerkUserId: userId,
+          email: "placeholder@email.com", // Will be updated by webhook
+          name: "New User", // Will be updated by webhook
+        },
+      });
+    }
   }
 
   // Get all user transactions

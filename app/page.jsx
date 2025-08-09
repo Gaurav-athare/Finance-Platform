@@ -6,7 +6,7 @@ import {
   howItWorksData,
   statsData,
   testimonialsData,
-} from "@/Data/landing";
+} from "@/data/landing";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -95,7 +95,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       {/* Testimonials Section */}
       <section id="testimonials" className="py-20">
         <div className="container mx-auto px-4">
