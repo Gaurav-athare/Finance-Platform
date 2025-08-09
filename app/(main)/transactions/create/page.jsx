@@ -1,6 +1,6 @@
 // app/(main)/transactions/create/page.jsx
 import { getUserAccounts } from "@/actions/dashboard";
-import { defaultCategories } from "@/data/categories";
+import { defaultCategories } from "@/Data/categories";
 import { AddTransactionForm } from "../_components/transaction-form";
 
 export default async function AddTransactionPage() {

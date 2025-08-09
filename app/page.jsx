@@ -6,7 +6,7 @@ import {
   howItWorksData,
   statsData,
   testimonialsData,
-} from "@/data/landing";
+} from "@/Data/landing";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
